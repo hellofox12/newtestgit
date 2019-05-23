@@ -1,0 +1,15 @@
+030800128773850
+        IPL_IME_BUF_ADDR CurInfo;
+        UINT32           srcW,srcH;
+        UINT32           PxlAddr[3];
+        UINT32           LineOff[3];
+        static UINT32    gQRcount = 0;
+
+        CurInfo.Id = IPL_ID_1;
+
+        IPL_GetCmd(IPL_GET_IME_CUR_BUF_ADDR, (void *)&CurInfo);
+
+        srcW = CurInfo.ImeP2.Ch[0].Width;
+        srcH = CurInfo.ImeP2.Ch[0].Height;
+        LineOff[0] = CurInfo.ImeP2.Ch[0].LineOfs;
+        PxlAddr[0] = CurInfo.ImeP2.PixelAddr[0];
